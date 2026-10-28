@@ -97,6 +97,8 @@ const CORE_MEMBERS = [
   { role: "Core Member", name: "Member Name 3", file: "core-3.jpg" },
   { role: "Core Member", name: "Member Name 4", file: "core-4.jpg" },
   { role: "Core Member", name: "Member Name 5", file: "core-5.jpg" },
+  { role: "Core Member", name: "Member Name 6", file: "core-6.jpg" },
+  { role: "Core Member", name: "Member Name 7", file: "core-7.jpg" }
 ];
 
 /* ==================================================
@@ -330,8 +332,9 @@ export default function SetuPage() {
           />
 
           <a className="sp-back" href="#/">
-            ← Back to the Diya
-          </a>
+            <span>← Back to</span>{" "}
+            <span className="sp-back-line">the Diya</span>
+            </a>
 
           <img
             className="sp-logo sp-logo-right"
@@ -423,4 +426,7 @@ export default function SetuPage() {
       </footer>
     </div>
   );
+
+  
 }
+

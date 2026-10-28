@@ -865,3 +865,117 @@
     transition: none;
   }
 }
+
+/* ==================================================
+   Phone fix: neat top bar
+   Newton smaller, button centred on 2 lines,
+   SETU smaller and a little higher
+================================================== */
+
+@media (max-width: 560px) {
+  .sp-page {
+    --logo-w: 82px;
+  }
+
+  .sp-topbar {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px 0;
+  }
+
+  .sp-topbar > * {
+    min-width: 0;
+  }
+
+  /* Newton logo: smaller */
+  .sp-logo-left {
+    width: 82px;
+    max-height: 30px;
+  }
+
+  /* Back button: centred, two lines */
+  .sp-topbar .sp-back {
+    justify-self: center;
+    align-self: center;
+    margin-top: 0;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .sp-back-line {
+    display: block;
+  }
+
+  /* SETU logo: smaller, moved up, stays clear of the pillar */
+  .sp-logo-right {
+    width: 58px;
+    max-height: none;
+    transform: translateY(-8px);
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .sp-topbar {
+    padding: 12px 20px 0;
+    gap: 6px;
+  }
+
+  .sp-logo-left {
+    width: 70px;
+  }
+
+  .sp-topbar .sp-back {
+    padding: 5px 9px;
+    font-size: 10px;
+  }
+
+  .sp-logo-right {
+    width: 50px;
+    transform: translateY(-6px);
+  }
+}
+
+
+/* ==================================================
+   Top dimming so the logos stand out
+   Darker at the top, fades to nothing, rest unchanged
+================================================== */
+
+.sp-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1; /* above the video, below the logos and text */
+  height: clamp(170px, 28vh, 280px);
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 3, 0, 0.82) 0%,
+    rgba(10, 3, 0, 0.6) 35%,
+    rgba(10, 3, 0, 0.25) 70%,
+    rgba(10, 3, 0, 0) 100%
+  );
+}
+
+/* A little extra glow-shadow so the white logos pop */
+.sp-logo {
+  filter:
+    drop-shadow(0 0 8px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+/* Phones: slightly shorter fade */
+@media (max-width: 560px) {
+  .sp-hero::before {
+    height: clamp(140px, 22vh, 200px);
+  }
+}
