@@ -3,7 +3,7 @@ import Diya3D from "../components/Diya3D";
 
 // Replace these with your real links
 const DONATE_URL = "#";
-const SETU_URL = "#";
+const SETU_URL = "#/setu";
 
 const embers = Array.from({ length: 75 }, (_, i) => ({
   id: i,
