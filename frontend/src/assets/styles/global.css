@@ -1,0 +1,877 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff2ce;
+  background: #160802;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: #160802;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.diya-page {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 57%,
+      rgba(116, 47, 8, 0.38) 0%,
+      rgba(69, 25, 5, 0.5) 34%,
+      rgba(34, 12, 3, 0.92) 72%,
+      #160802 100%
+    );
+  transition: background 3.6s ease;
+}
+
+.diya-page.is-lit {
+  background:
+    radial-gradient(
+      ellipse at 50% 56%,
+      rgba(211, 105, 19, 0.46) 0%,
+      rgba(133, 53, 8, 0.54) 32%,
+      rgba(68, 24, 4, 0.86) 69%,
+      #160802 100%
+    );
+}
+
+/* --------------------------------------------------
+   Warm atmospheric background glow
+-------------------------------------------------- */
+
+.warm-atmosphere {
+  position: absolute;
+  z-index: 0;
+  inset: -30%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 55%,
+      rgba(255, 133, 28, 0.27) 0%,
+      rgba(219, 89, 11, 0.16) 24%,
+      rgba(130, 44, 4, 0.09) 48%,
+      transparent 72%
+    );
+  opacity: 0.35;
+  transform: scale(0.75);
+  transition:
+    opacity 3.6s ease,
+    transform 4s ease;
+}
+
+.diya-page.is-lit .warm-atmosphere {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* --------------------------------------------------
+   Rotating atmospheric light rays
+-------------------------------------------------- */
+
+.light-rays {
+  position: absolute;
+  z-index: 0;
+  inset: -40%;
+  pointer-events: none;
+  opacity: 0;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(255, 176, 67, 0.035) 15deg,
+    transparent 32deg,
+    rgba(255, 190, 83, 0.075) 46deg,
+    transparent 66deg,
+    rgba(255, 150, 43, 0.045) 90deg,
+    transparent 115deg,
+    rgba(255, 190, 83, 0.06) 140deg,
+    transparent 165deg,
+    rgba(255, 170, 61, 0.04) 190deg,
+    transparent 220deg,
+    rgba(255, 190, 83, 0.06) 250deg,
+    transparent 280deg,
+    rgba(255, 150, 43, 0.045) 310deg,
+    transparent 340deg,
+    transparent 360deg
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 0%,
+    rgba(0, 0, 0, 0.65) 42%,
+    transparent 72%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 0%,
+    rgba(0, 0, 0, 0.65) 42%,
+    transparent 72%
+  );
+  transition: opacity 3.8s ease;
+  animation: rotate-light-rays 100s linear infinite;
+}
+
+.diya-page.is-lit .light-rays {
+  opacity: 0.75;
+}
+
+@keyframes rotate-light-rays {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------
+   Floating embers
+-------------------------------------------------- */
+
+.floating-embers {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-ember {
+  position: absolute;
+  left: var(--left);
+  top: var(--top);
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #fff7cf 0%,
+    #ffd16e 24%,
+    #ff8b26 52%,
+    rgba(255, 100, 12, 0.2) 76%,
+    transparent 100%
+  );
+  opacity: calc(var(--ember-opacity) * 0.65);
+  box-shadow:
+    0 0 5px rgba(255, 189, 75, 0.75),
+    0 0 12px rgba(255, 126, 26, 0.48),
+    0 0 22px rgba(255, 98, 12, 0.22);
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+.diya-page.is-lit .ambient-ember {
+  animation: ember-drift var(--duration) ease-in-out var(--delay) infinite;
+}
+
+@keyframes ember-drift {
+  0% {
+    opacity: 0.22;
+    transform: translate3d(0, 12px, 0) scale(0.75);
+  }
+
+  30% {
+    opacity: 0.95;
+  }
+
+  65% {
+    opacity: 0.72;
+    transform: translate3d(var(--drift), -35px, 0) scale(1.15);
+  }
+
+  100% {
+    opacity: 0.25;
+    transform: translate3d(
+      calc(var(--drift) * -0.35),
+      -75px,
+      0
+    ) scale(0.8);
+  }
+}
+
+/* --------------------------------------------------
+   Tiny floating sparks
+-------------------------------------------------- */
+
+.floating-sparks {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-spark {
+  position: absolute;
+  left: var(--left);
+  top: var(--top);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: #ffe9a3;
+  opacity: 0.2;
+  box-shadow:
+    0 0 4px rgba(255, 238, 177, 0.9),
+    0 0 9px rgba(255, 170, 45, 0.75),
+    0 0 16px rgba(255, 117, 16, 0.35);
+}
+
+.diya-page.is-lit .ambient-spark {
+  animation: spark-float var(--duration) ease-in-out var(--delay) infinite;
+}
+
+@keyframes spark-float {
+  0% {
+    opacity: 0.1;
+    transform: translateY(15px) scale(0.6);
+  }
+
+  35% {
+    opacity: 0.9;
+    transform: translateY(-15px) scale(1.1);
+  }
+
+  70% {
+    opacity: 0.5;
+    transform: translateY(-42px) scale(0.8);
+  }
+
+  100% {
+    opacity: 0.08;
+    transform: translateY(-65px) scale(0.55);
+  }
+}
+
+/* --------------------------------------------------
+   Central glow behind the Diya
+-------------------------------------------------- */
+
+.main-diya-glow {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 53%;
+  width: min(85vw, 1000px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 158, 43, 0.24) 0%,
+    rgba(255, 116, 20, 0.15) 25%,
+    rgba(232, 80, 9, 0.07) 45%,
+    transparent 70%
+  );
+  filter: blur(35px);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.7);
+  transition:
+    opacity 3.8s ease,
+    transform 4s ease;
+}
+
+.diya-page.is-lit .main-diya-glow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* --------------------------------------------------
+   Decorative festive side pillars
+   Full screen height; fade in slowly when lit
+-------------------------------------------------- */
+
+.festive-side-bars {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.festive-side-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(28px, 4.2vw, 64px);
+  height: 100%;
+  opacity: 0;
+  transition: opacity 3.6s ease;
+  will-change: opacity;
+}
+
+/* Left and right placement */
+
+.festive-side-bar-left {
+  left: 0;
+}
+
+.festive-side-bar-right {
+  right: 0;
+}
+
+/* Warm illuminated bar body */
+
+.side-bar-core {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 127, 21, 0.12) 0%,
+    rgba(255, 164, 54, 0.5) 22%,
+    rgba(255, 220, 139, 0.88) 48%,
+    rgba(255, 160, 43, 0.58) 72%,
+    rgba(255, 106, 12, 0.12) 100%
+  );
+  box-shadow:
+    inset 0 0 10px rgba(255, 221, 137, 0.4),
+    0 0 12px rgba(255, 159, 39, 0.6),
+    0 0 30px rgba(255, 117, 17, 0.4),
+    0 0 60px rgba(255, 92, 9, 0.22);
+}
+
+/* Fine bright line along each bar */
+
+.side-bar-highlight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 42%;
+  width: 4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 240, 188, 0.08) 0%,
+    rgba(255, 234, 174, 0.8) 18%,
+    rgba(255, 244, 199, 0.95) 50%,
+    rgba(255, 219, 140, 0.65) 82%,
+    rgba(255, 240, 188, 0.08) 100%
+  );
+  box-shadow:
+    0 0 6px rgba(255, 225, 150, 0.8),
+    0 0 14px rgba(255, 169, 53, 0.5);
+}
+
+/* Subtle ornamental glows at the top and bottom */
+
+.side-bar-ornament {
+  position: absolute;
+  left: 50%;
+  display: block;
+  width: clamp(26px, 4vw, 60px);
+  height: clamp(26px, 4vw, 60px);
+  border: 1px solid rgba(255, 211, 116, 0.75);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 246, 196, 0.95) 0%,
+    rgba(255, 180, 57, 0.6) 30%,
+    rgba(255, 112, 16, 0.12) 70%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 10px rgba(255, 191, 78, 0.65),
+    0 0 24px rgba(255, 112, 15, 0.35);
+  transform: translateX(-50%) scale(0.8);
+  transition: transform 3.6s ease;
+}
+
+.side-bar-ornament-top {
+  top: 5%;
+}
+
+.side-bar-ornament-bottom {
+  bottom: 5%;
+}
+
+/* Fade the pillars in with the ignition */
+
+.diya-page.is-lit .festive-side-bar {
+  opacity: 1;
+}
+
+.diya-page.is-lit .side-bar-ornament {
+  transform: translateX(-50%) scale(1);
+}
+
+/* Slightly softer bars on smaller screens */
+
+@media (max-width: 600px) {
+  .festive-side-bar {
+    width: 22px;
+  }
+
+  .side-bar-core {
+    box-shadow:
+      inset 0 0 6px rgba(255, 221, 137, 0.25),
+      0 0 8px rgba(255, 159, 39, 0.4),
+      0 0 18px rgba(255, 117, 17, 0.25);
+  }
+
+  .side-bar-ornament {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* --------------------------------------------------
+   Top corner logos
+   Hidden until the Diya is lit, then fade in slowly
+-------------------------------------------------- */
+
+.corner-logo-header {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding:
+    clamp(16px, 2.5vw, 30px)
+    clamp(18px, 3vw, 42px)
+    0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 3.6s ease;
+}
+
+.diya-page.is-lit .corner-logo-header {
+  opacity: 1;
+}
+
+.corner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 40%;
+  pointer-events: none;
+}
+
+.corner-logo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.38));
+}
+
+/* Newton School logo: top-left */
+
+.corner-logo-left img {
+  width: clamp(115px, 17vw, 220px);
+  max-height: clamp(35px, 6vw, 66px);
+  object-position: left center;
+}
+
+/* SETU Club logo: top-right */
+
+.corner-logo-right {
+  margin-left: auto;
+}
+
+.corner-logo-right img {
+  width: clamp(70px, 9.6vw, 140px);
+  max-height: clamp(50px, 8.4vw, 140px);
+  object-position: right center;
+}
+
+/* --------------------------------------------------
+   Transparent 3D canvas
+-------------------------------------------------- */
+
+.diya-canvas {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.diya-canvas:active {
+  cursor: grabbing;
+}
+
+.diya-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+  outline: none;
+}
+
+/* --------------------------------------------------
+   Soft screen vignette
+-------------------------------------------------- */
+
+.screen-vignette {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 35%,
+    rgba(20, 7, 1, 0.1) 63%,
+    rgba(13, 4, 1, 0.48) 100%
+  );
+}
+
+/* --------------------------------------------------
+   Intro hint: "Click the Diya to light it"
+   Only visible before the Diya is lit; fades out on click.
+-------------------------------------------------- */
+
+.click-hint {
+  position: absolute;
+  z-index: 6;
+  top: clamp(96px, 17vh, 190px);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+  text-align: center;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 1.2s ease;
+}
+
+.diya-page.is-lit .click-hint {
+  opacity: 0;
+}
+
+.click-hint-text {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(22px, min(3vw, 4.6vh), 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, #fff3c4 0%, #ffcf6b 55%, #ff9f2e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 14px rgba(255, 150, 40, 0.45));
+  animation: hint-pulse 2.6s ease-in-out infinite;
+}
+
+.diya-page.is-lit .click-hint-text {
+  animation: none;
+}
+
+@keyframes hint-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------
+   Campaign text: heading + description (above the Diya)
+   Sits between the logos, a little below them.
+   Hidden until lit; wrapper ignores pointer events so
+   the Diya stays draggable.
+-------------------------------------------------- */
+
+.campaign-top {
+  position: absolute;
+  z-index: 6;
+  top: clamp(84px, 11vh, 138px);
+  left: 0;
+  right: 0;
+  width: min(720px, calc(100% - 2 * clamp(48px, 9vw, 130px)));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1.4vh, 16px);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition:
+    opacity 3.6s ease 0.6s,
+    transform 3.6s ease 0.6s,
+    visibility 0s linear 0s;
+}
+
+.diya-page.is-lit .campaign-top {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.campaign-title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, min(3.6vw, 5.2vh), 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #fff3c4 0%, #ffcf6b 55%, #ff9f2e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 14px rgba(255, 150, 40, 0.45));
+}
+
+.campaign-description {
+  margin: 0;
+  max-width: 100%;
+  font-size: clamp(12px, min(1.25vw, 2.1vh), 17px);
+  line-height: 1.6;
+  color: rgba(255, 242, 206, 0.9);
+  text-shadow:
+    0 1px 10px rgba(20, 7, 1, 0.85),
+    0 0 4px rgba(20, 7, 1, 0.6);
+}
+
+/* --------------------------------------------------
+   Campaign call to action (below the Diya)
+   Hidden until lit, so the buttons can't be clicked early.
+-------------------------------------------------- */
+
+.campaign-bottom {
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  right: 0;
+  bottom: clamp(22px, 5vh, 58px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.8vh, 18px);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition:
+    opacity 3.6s ease 1.2s,
+    transform 3.6s ease 1.2s,
+    visibility 0s linear 0s;
+}
+
+.diya-page.is-lit .campaign-bottom {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.campaign-join {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(16px, min(1.8vw, 3vh), 24px);
+  font-style: italic;
+  letter-spacing: 0.03em;
+  color: #ffe2a0;
+  text-shadow:
+    0 0 12px rgba(255, 150, 40, 0.5),
+    0 1px 8px rgba(20, 7, 1, 0.8);
+}
+
+/* Primary button */
+
+.donate-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(11px, 1.8vh, 16px) clamp(34px, 4vw, 54px);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffe29a 0%, #ffb43c 50%, #ff8a1f 100%);
+  color: #3b1602;
+  font-size: clamp(13px, min(1.2vw, 2.2vh), 17px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow:
+    0 0 14px rgba(255, 170, 50, 0.55),
+    0 0 36px rgba(255, 112, 15, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  pointer-events: auto;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.donate-button:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.06);
+  box-shadow:
+    0 0 20px rgba(255, 190, 70, 0.75),
+    0 0 50px rgba(255, 112, 15, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.donate-button:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Small secondary button */
+
+.setu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(7px, 1.1vh, 10px) clamp(18px, 2vw, 26px);
+  border: 1px solid rgba(255, 211, 116, 0.7);
+  border-radius: 999px;
+  background: rgba(30, 10, 2, 0.35);
+  color: #ffe2a0;
+  font-size: clamp(11px, min(1vw, 1.8vh), 13.5px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 0 12px rgba(255, 150, 40, 0.18);
+  pointer-events: auto;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.setu-button:hover {
+  background: rgba(255, 190, 80, 0.2);
+  color: #fff4d2;
+  box-shadow: 0 0 18px rgba(255, 170, 50, 0.4);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------
+   Responsive layout
+-------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .corner-logo-header {
+    padding: 14px 14px 0;
+  }
+
+  .corner-logo-left img {
+    width: clamp(105px, 34vw, 150px);
+    max-height: 42px;
+  }
+
+  .corner-logo-right img {
+    width: clamp(58px, 18vw, 82px);
+    max-height: 58px;
+  }
+
+  .main-diya-glow {
+    width: 115vw;
+    filter: blur(28px);
+  }
+
+  .warm-atmosphere {
+    inset: -18%;
+  }
+
+  .click-hint {
+    top: 100px;
+  }
+
+  .click-hint-text {
+    font-size: 22px;
+  }
+
+  .campaign-top {
+    top: 78px;
+    width: calc(100% - 80px);
+    gap: 8px;
+  }
+
+  .campaign-title {
+    font-size: 24px;
+  }
+
+  .campaign-description {
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+
+  .campaign-bottom {
+    bottom: 22px;
+    gap: 10px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .light-rays {
+    animation: none;
+  }
+
+  .click-hint-text {
+    animation: none;
+  }
+
+  .diya-page,
+  .warm-atmosphere,
+  .light-rays,
+  .main-diya-glow,
+  .festive-side-bar,
+  .side-bar-ornament,
+  .corner-logo-header,
+  .click-hint,
+  .campaign-top,
+  .campaign-bottom {
+    transition-duration: 0.01ms;
+    transition-delay: 0s;
+  }
+
+  .diya-page.is-lit .ambient-ember,
+  .diya-page.is-lit .ambient-spark {
+    animation: none;
+    opacity: 0.65;
+  }
+}

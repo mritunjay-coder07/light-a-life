@@ -1,0 +1,7 @@
+
+/* Main page styling is in assets/styles/global.css. */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
