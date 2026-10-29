@@ -332,8 +332,8 @@ export default function SetuPage() {
           />
 
           <a className="sp-back" href="#/">
-            <span>← Back to</span>{" "}
-            <span className="sp-back-line">the Diya</span>
+            {/* <span>← Back to</span>{" "} */}
+            <span className="sp-back-line">← Back to the Diya</span>
             </a>
 
           <img
