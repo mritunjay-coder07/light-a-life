@@ -25,12 +25,9 @@ const AIM_TEXT =
   "To turn student energy into lasting social impact: spreading joy, supporting vulnerable communities and making every festival a chance to light someone else’s life.";
 
 /*
-  Real photos: put 20 images per event in
-    /public/images/events/iit-delhi/1.jpg ... 20.jpg
-  and set USE_PLACEHOLDER_PHOTOS = false.
-
-  firstPhotoId is only used for the placeholder photos. Each event uses
-  20 fixed picsum.photos ids in a row, so the photos never change.
+  Real photos: You can now change any photo URL directly in the `photos`
+  array of each event below. You can paste any online image URL or a local
+  file path like "/images/events/iit-delhi/1.jpg".
 */
 const EVENTS = [
   {
@@ -48,11 +45,34 @@ const EVENTS = [
       "Every activity was planned so that the people we met felt seen, welcomed and celebrated.",
       "It showed how two student communities can build a bridge for good.",
     ],
+    // Change any of these 20 fixed photo URLs manually:
+    photos: [
+      "https://picsum.photos/id/10/360/440",
+      "https://picsum.photos/id/11/360/440",
+      "https://picsum.photos/id/12/360/440",
+      "https://picsum.photos/id/13/360/440",
+      "https://picsum.photos/id/14/360/440",
+      "https://picsum.photos/id/15/360/440",
+      "https://picsum.photos/id/16/360/440",
+      "https://picsum.photos/id/17/360/440",
+      "https://picsum.photos/id/18/360/440",
+      "https://picsum.photos/id/19/360/440",
+      "https://picsum.photos/id/20/360/440",
+      "https://picsum.photos/id/21/360/440",
+      "https://picsum.photos/id/22/360/440",
+      "https://picsum.photos/id/23/360/440",
+      "https://picsum.photos/id/24/360/440",
+      "https://picsum.photos/id/25/360/440",
+      "https://picsum.photos/id/26/360/440",
+      "https://picsum.photos/id/27/360/440",
+      "https://picsum.photos/id/28/360/440",
+      "https://picsum.photos/id/29/360/440",
+    ],
   },
   {
     id: "club",
     kicker: "Event 02",
-    title: "SETU x Club",
+    title: "SETU x GHAR",
     heading: "Stronger when we serve together",
     folder: "/images/events/club",
     firstPhotoId: 30,
@@ -64,11 +84,34 @@ const EVENTS = [
       "Simple, thoughtful gestures made the biggest difference to the people we met.",
       "It proved that collaboration multiplies the good a student club can do.",
     ],
+    // Change any of these 20 fixed photo URLs manually:
+    photos: [
+      "https://picsum.photos/id/30/360/440",
+      "https://picsum.photos/id/31/360/440",
+      "https://picsum.photos/id/32/360/440",
+      "https://picsum.photos/id/33/360/440",
+      "https://picsum.photos/id/34/360/440",
+      "https://picsum.photos/id/35/360/440",
+      "https://picsum.photos/id/36/360/440",
+      "https://picsum.photos/id/37/360/440",
+      "https://picsum.photos/id/38/360/440",
+      "https://picsum.photos/id/39/360/440",
+      "https://picsum.photos/id/40/360/440",
+      "https://picsum.photos/id/41/360/440",
+      "https://picsum.photos/id/42/360/440",
+      "https://picsum.photos/id/43/360/440",
+      "https://picsum.photos/id/44/360/440",
+      "https://picsum.photos/id/45/360/440",
+      "https://picsum.photos/id/46/360/440",
+      "https://picsum.photos/id/47/360/440",
+      "https://picsum.photos/id/48/360/440",
+      "https://picsum.photos/id/49/360/440",
+    ],
   },
   {
     id: "asiscc",
     kicker: "Event 03",
-    title: "SETU x ASISCC",
+    title: "SETU x AIESEC",
     heading: "One bridge, many hands",
     folder: "/images/events/asiscc",
     firstPhotoId: 50,
@@ -79,6 +122,29 @@ const EVENTS = [
       "The day was built around giving with care, transparency and respect.",
       "Smiles, stories and shared moments mattered as much as the gifts themselves.",
       "It added another strong link to the chain of people who want to light lives.",
+    ],
+    // Change any of these 20 fixed photo URLs manually:
+    photos: [
+      "https://picsum.photos/id/50/360/440",
+      "https://picsum.photos/id/51/360/440",
+      "https://picsum.photos/id/52/360/440",
+      "https://picsum.photos/id/53/360/440",
+      "https://picsum.photos/id/54/360/440",
+      "https://picsum.photos/id/55/360/440",
+      "https://picsum.photos/id/56/360/440",
+      "https://picsum.photos/id/57/360/440",
+      "https://picsum.photos/id/58/360/440",
+      "https://picsum.photos/id/59/360/440",
+      "https://picsum.photos/id/60/360/440",
+      "https://picsum.photos/id/61/360/440",
+      "https://picsum.photos/id/62/360/440",
+      "https://picsum.photos/id/63/360/440",
+      "https://picsum.photos/id/64/360/440",
+      "https://picsum.photos/id/65/360/440",
+      "https://picsum.photos/id/66/360/440",
+      "https://picsum.photos/id/67/360/440",
+      "https://picsum.photos/id/68/360/440",
+      "https://picsum.photos/id/69/360/440",
     ],
   },
 ];
@@ -103,13 +169,15 @@ const CORE_MEMBERS = [
    Helpers
 ================================================== */
 
-// 20 fixed photo URLs per event
+// Photo URLs per event. Uses the event's photos array if specified, allowing easy manual edits.
 const eventPhotos = (event) =>
-  Array.from({ length: PHOTO_COUNT }, (_, i) =>
-    USE_PLACEHOLDER_PHOTOS
-      ? `https://picsum.photos/id/${event.firstPhotoId + i}/360/440`
-      : `${event.folder}/${i + 1}.jpg`
-  );
+  event.photos && event.photos.length > 0
+    ? event.photos
+    : Array.from({ length: PHOTO_COUNT }, (_, i) =>
+        USE_PLACEHOLDER_PHOTOS
+          ? `https://picsum.photos/id/${(event.firstPhotoId || 10) + i}/360/440`
+          : `${event.folder}/${i + 1}.jpg`
+      );
 
 const memberPhoto = (member) =>
   USE_PLACEHOLDER_PHOTOS
@@ -330,8 +398,7 @@ export default function SetuPage() {
           />
 
           <a className="sp-back" href="#/">
-            <span>← Back to</span>{" "}
-            <span className="sp-back-line">the Diya</span>
+            <span className="sp-back-line">← Back to the Diya</span>
             </a>
 
           <img
