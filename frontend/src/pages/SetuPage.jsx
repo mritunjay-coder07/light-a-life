@@ -5,10 +5,8 @@ import "./SetuPage.css";
    EDIT THIS SECTION: all your content lives here
 ================================================== */
 
-// Background video of the hero. Put your own file in /public/videos/
-// and use "/videos/setu-club.mp4" instead.
-const BACKGROUND_VIDEO =
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
+// Background video of the hero.
+const BACKGROUND_VIDEO = "/videos/setu-bg.mp4";
 
 // true  = placeholder photos with fixed URLs (needs internet)
 // false = your own photos from /public/images/events/<event>/1.jpg ... 20.jpg
