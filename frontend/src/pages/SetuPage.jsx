@@ -158,7 +158,7 @@ const LEADERS = [
 const CORE_MEMBERS = [
   { role: "Field Operation Head", name: "Rameez Raheman", file: "field-operation.jpg" },
   { role: "Documentation Head", name: "Chenna Mahith", file: "documentation.jpg" },
-  { role: "Design Head", name: "Rohan Prathap Reddy", file: "design.jpeg" },
+  { role: "Design Head", name: "Rohan Prathap Reddy", file: "design.jpg" },
   { role: "Outreach Head", name: "Sarth Dhut", file: "outreach.jpg" },
   { role: "Tech Head", name: "Mritunjay Sahu", file: "tech-lead.jpg" },
   { role: "Event Head", name: "Disha Bandelkar", file: "event-head.jpg" },
