@@ -72,7 +72,7 @@ const EVENTS = [
   {
     id: "club",
     kicker: "Event 02",
-    title: "SETU x Jayatu Foundation",
+    title: "SETU x GHAR",
     heading: "Stronger when we serve together",
     folder: "/images/events/club",
     firstPhotoId: 30,
