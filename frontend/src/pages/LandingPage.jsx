@@ -241,7 +241,7 @@ export default function LandingPage() {
 
         {/* Call to action (below the Diya) */}
         <div className="campaign-bottom">
-          <p className="campaign-join">Join us in spreading joy</p>
+          <p className="campaign-join">Join us spreading joy</p>
 
           <div className="campaign-buttons-group">
             <a
