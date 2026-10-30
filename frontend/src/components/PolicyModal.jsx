@@ -209,7 +209,7 @@ function PrivacyPolicyContent() {
         <p><strong>Lead Coordinator:</strong> Mritunjay Sahu</p>
         <p><strong>Email:</strong> <a href="mailto:mritunjaysahu07@gmail.com">mritunjaysahu07@gmail.com</a></p>
         <p><strong>Phone:</strong> <a href="tel:+918450073003">+91 8450073003</a></p>
-        <p><strong>Campus Address:</strong> SETU Club, Newton School of Technology, Delhi-NCR, India</p>
+        <p><strong>Campus Address:</strong> SETU Club, Newton School of Technology, Lohegaon, Pune, 412105</p>
       </div>
     </article>
   );
@@ -235,7 +235,7 @@ function TermsContent() {
       <p>
         SETU is the official student social club of Newton School of Technology. The word &quot;Setu&quot; means
         bridge. We operate as a philanthropic bridge connecting students, sponsors, and donors with underprivileged
-        communities, orphanages (such as Sant Ishwar Foundation – GHAR), elderly care homes, and individuals in need.
+        communities, orphanages (such as Jayatu Foundation Pune), elderly care homes, and individuals in need.
       </p>
 
       <h3>3. Nature of Contributions</h3>
@@ -274,7 +274,7 @@ function TermsContent() {
       <p>
         These Terms shall be governed and interpreted under the laws of the Republic of India. Any legal dispute
         arising under or in connection with these terms shall fall under the exclusive jurisdiction of the competent
-        courts in Delhi-NCR / Haryana, India.
+        courts in Pune, Maharashtra, India.
       </p>
     </article>
   );
@@ -383,7 +383,7 @@ function ShippingContent() {
         </p>
         <p>
           All donations made on this platform fund charitable Diwali kits and food drives that our volunteers
-          physically deliver directly to children, disabled women, and elderly residents at Sant Ishwar Foundation – GHAR.
+          physically deliver directly to children, disabled women, and elderly residents at Jayatu Foundation Pune.
         </p>
       </div>
 
@@ -463,9 +463,9 @@ function ContactContent() {
           <MapPin className="policy-icon" size={24} />
           <h4>Campus Address</h4>
           <p>
-            SETU Club, Newton School of Technology Campus,
+            SETU Club, Newton School of Technology,
             <br />
-            Delhi-NCR (Sonipat, Haryana – 131021), India
+            Lohegaon, Pune, 412105, India
           </p>
         </div>
 
@@ -507,7 +507,7 @@ function AboutContent() {
       <h3>Project SEVA – Light a Life This Diwali</h3>
       <p>
         This festive season, SETU Club is spearheading Project SEVA in partnership with
-        <strong>Sant Ishwar Foundation – GHAR</strong>, a dedicated sanctuary providing care, shelter, and medical
+        <strong>Jayatu Foundation Pune</strong>, a dedicated sanctuary providing care, shelter, and medical
         support to orphaned and vulnerable girls, women with severe disabilities, and elderly citizens without families.
       </p>
 
