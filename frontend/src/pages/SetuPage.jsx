@@ -6,7 +6,7 @@ import "./SetuPage.css";
 ================================================== */
 
 // Background video of the hero.
-const BACKGROUND_VIDEO = "/videos/setu-bg.mp4";
+const BACKGROUND_VIDEO = "/videos/ghar.mp4";
 
 // true  = placeholder photos with fixed URLs (needs internet)
 // false = your own photos from /public/images/events/<event>/1.jpg ... 20.jpg
@@ -37,7 +37,7 @@ const EVENTS = [
     heading: "Two campuses, one purpose",
     folder: "/images/events/iit-delhi",
     firstPhotoId: 10,
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+    video: "/videos/iit.mp4",
     impact: [
       "SETU teamed up with IIT Delhi to carry the spirit of giving beyond our own campus.",
       "Students from both communities volunteered side by side, sharing time, ideas and effort.",
@@ -76,7 +76,7 @@ const EVENTS = [
     heading: "Stronger when we serve together",
     folder: "/images/events/club",
     firstPhotoId: 30,
-    video: "https://media.w3.org/2010/05/sintel/trailer.mp4",
+    video: "/videos/front.mp4",
     impact: [
       "SETU joined forces with a partner club to turn a shared idea into a day of service.",
       "Volunteers from both teams planned, packed and delivered everything themselves.",
@@ -115,7 +115,7 @@ const EVENTS = [
     heading: "One bridge, many hands",
     folder: "/images/events/asiscc",
     firstPhotoId: 50,
-    video: "https://media.w3.org/2010/05/bunny/trailer.mp4",
+    video: "/videos/aiisiec.mp4",
     impact: [
       "SETU partnered with ASISCC to bring more hands and more heart to a common cause.",
       "Both teams worked together on the ground, from planning to the final celebration.",
@@ -151,7 +151,7 @@ const EVENTS = [
 
 // Team photos: /public/images/team/<file>
 const LEADERS = [
-  { role: "President", name: "President Name", file: "/public/images/team/President.jpg" },
+  { role: "President", name: "Ayana Sharma", file: "/public/images/team/President.jpg" },
   { role: "Vice President", name: "Vice President Name", file: "vicepresident.jpg" },
 ];
 
