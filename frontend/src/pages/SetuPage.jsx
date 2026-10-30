@@ -151,7 +151,7 @@ const EVENTS = [
 
 // Team photos: /public/images/team/<file>
 const LEADERS = [
-  { role: "President", name: "Ayana Sharma", file: "/public/images/team/President.jpg" },
+  { role: "President", name: "Aayana Sharma", file: "/public/images/team/President.jpg" },
   { role: "Vice President", name: "Vice President Name", file: "vicepresident.jpg" },
 ];
 
