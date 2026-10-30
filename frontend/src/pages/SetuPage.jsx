@@ -10,7 +10,7 @@ const BACKGROUND_VIDEO = "/videos/ghar.mp4";
 
 // true  = placeholder photos with fixed URLs (needs internet)
 // false = your own photos from /public/images/events/<event>/1.jpg ... 20.jpg
-const USE_PLACEHOLDER_PHOTOS = true;
+const USE_PLACEHOLDER_PHOTOS = false;
 
 // Every event uses exactly this many photos (8 are visible at a time)
 const PHOTO_COUNT = 20;
@@ -47,26 +47,26 @@ const EVENTS = [
     ],
     // Change any of these 20 fixed photo URLs manually:
     photos: [
-      "images/event1-1.jpg",
-      "images/event1-2.jpg",
-      "images/event1-3.jpg",
-      "images/event1-4.jpg",
-      "images/event1-5.jpg",
-      "images/event1-6.jpg",
-      "images/event1-7.jpg",
-      "images/event1-8.jpg",
-      "images/event1-9.jpg",
-      "images/event1-10.jpg",
-      "images/event1-11.jpg",
-      "images/event1-12.jpg",
-      "images/event1-13.jpg",
-      "images/event1-14.jpg",
-      "images/event1-15.jpg",
-      "images/event1-16.jpg",
-      "images/event1-17.jpg",
-      "images/event1-18.jpg",
-      "images/event1-19.jpg",
-      "images/event1-20.jpg",
+      "/images/event1-1.jpg",
+      "/images/event1-2.jpg",
+      "/images/event1-3.jpg",
+      "/images/event1-4.jpg",
+      "/images/event1-5.jpg",
+      "/images/event1-6.jpg",
+      "/images/event1-7.jpg",
+      "/images/event1-8.png",
+      "/images/event1-9.jpg",
+      "/images/event1-10.jpg",
+      "/images/event1-11.jpg",
+      "/images/event1-12.jpg",
+      "/images/event1-13.jpg",
+      "/images/event1-14.jpg",
+      "/images/event1-15.jpg",
+      "/images/event1-16.jpg",
+      "/images/event1-17.jpg",
+      "/images/event1-18.jpg",
+      "/images/event1-19.jpg",
+      "/images/event1-20.jpg",
     ],
   },
   {
@@ -86,26 +86,26 @@ const EVENTS = [
     ],
     // Change any of these 20 fixed photo URLs manually:
     photos: [
-      "images/event2-1.jpg",
-      "images/event2-2.jpg",
-      "images/event2-3.jpg",
-      "images/event2-4.jpg",
-      "images/event2-5.jpg",
-      "images/event2-6.jpg",
-      "images/event2-7.jpg",
-      "images/event2-8.jpg",
-      "images/event2-9.jpg",
-      "images/events2-10.jpg",
-      "images/event2-11.jpg",
-      "images/event2-12.jpg",
-      "images/event2-13.jpg",
-      "images/event2-14.jpg",
-      "images/event2-15.jpg",
-      "images/event2-16.jpg",
-      "images/event2-17.jpg",
-      "images/event2-18.jpg",
-      "images/event2-19.jpg",
-      "images/event2-20.jpg",
+      "/images/event2-1.jpg",
+      "/images/event2-2.jpg",
+      "/images/event2-3.jpg",
+      "/images/event2-4.jpg",
+      "/images/event2-5.jpg",
+      "/images/event2-6.jpg",
+      "/images/event2-7.jpg",
+      "/images/event2-8.jpg",
+      "/images/event2-9.jpg",
+      "/images/events2-10.jpg",
+      "/images/event2-11.jpg",
+      "/images/event2-12.jpg",
+      "/images/event2-13.jpg",
+      "/images/event2-14.jpg",
+      "/images/event2-15.jpg",
+      "/images/event2-16.jpg",
+      "/images/event2-17.jpg",
+      "/images/event2-18.jpg",
+      "/images/event2-19.jpg",
+      "/images/event2-20.jpg",
     ],
   },
   {
@@ -125,44 +125,44 @@ const EVENTS = [
     ],
     // Change any of these 20 fixed photo URLs manually:
     photos: [
-      "images/event3-1.jpg",
-      "images/event3-2.jpg",
-      "images/event3-3.jpg",
-      "images/event3-4.jpg",
-      "images/event3-5.jpg",
-      "images/event3-6.jpg",
-      "images/event3-7.jpg",
-      "images/event3-8.jpg",
-      "images/event3-9.jpg",
-      "images/event3-10.jpg",
-      "images/event3-11.jpg",
-      "images/event3-12.jpg",
-      "images/event3-13.jpg",
-      "images/event3-14.jpg",
-      "images/event3-15.jpg",
-      "images/event3-16.jpg",
-      "images/event3-17.jpg",
-      "images/event3-18.jpg",
-      "images/event3-19.jpg",
-      "images/event3-20.jpg",
+      "/images/event3-1.jpg",
+      "/images/event3-2.jpg",
+      "/images/event3-3.jpg",
+      "/images/event3-4.jpg",
+      "/images/event3-5.jpg",
+      "/images/event3-6.jpg",
+      "/images/event3-7.jpg",
+      "/images/event3-8.jpg",
+      "/images/event3-9.jpg",
+      "/images/event3-10.jpg",
+      "/images/event3-11.jpg",
+      "/images/event3-12.jpg",
+      "/images/event3-13.jpg",
+      "/images/event3-14.jpg",
+      "/images/event3-15.jpg",
+      "/images/event3-16.jpg",
+      "/images/event3-17.jpg",
+      "/images/event3-18.jpg",
+      "/images/event3-19.jpg",
+      "/images/event3-20.jpg",
     ],
   },
 ];
 
-// Team photos: /public/images/team/<file>
+// Team photos: /public/images/ or /public/images/team/
 const LEADERS = [
-  { role: "President", name: "Ayana Sharma", file: "/public/images/team/President.jpg" },
-  { role: "Vice President", name: "Vice President Name", file: "vicepresident.jpg" },
+  { role: "President", name: "Aanya Sharma", file: "team/President.jpg" },
+  { role: "Vice President", name: "Ishita Chaurasiya", file: "vicepresident.jpg" },
 ];
 
 const CORE_MEMBERS = [
-  { role: "Field Operation Head", name: "Member Name 1", file: "../../public/images/field-operation.jpg" },
-  { role: "Documentation Head", name: "Member Name 2", file: "../../public/images/documentation.jpg" },
-  { role: "Design Head", name: "Member Name 3", file: "../../public/images/design.jpg" },
-  { role: "Outreach Head", name: "Member Name 4", file: "../../public/images/outreach.jpg" },
-  { role: "Tech Head", name: "Member Name 5", file: "../../public/images/tech-lead.jpg" },
-  { role: "Event Head", name: "Member Name 6", file: "../../public/images/event-head.jpg" },
-  { role: "Media and Marketing Head", name: "Member Name 7", file: "../../public/images/media_marketing_head.jpg" }
+  { role: "Field Operation Head", name: "Rameez Raheman", file: "field-operation.jpg" },
+  { role: "Documentation Head", name: "Chenna Mahith", file: "documentation.jpg" },
+  { role: "Design Head", name: "Rohan Prathap Reddy", file: "design.jpg" },
+  { role: "Outreach Head", name: "Sarth Dhut", file: "outreach.jpg" },
+  { role: "Tech Head", name: "Mritunjay Sahu", file: "tech-lead.jpg" },
+  { role: "Event Head", name: "Disha Bandelkar", file: "event-head.jpg" },
+  { role: "Media and Marketing Head", name: "Vedansh Saini", file: "media_marketing_head.jpg" }
 ];
 
 /* ==================================================
@@ -182,7 +182,7 @@ const eventPhotos = (event) =>
 const memberPhoto = (member) =>
   USE_PLACEHOLDER_PHOTOS
     ? `https://picsum.photos/seed/${member.file}/400/400`
-    : `/images/team/${member.file}`;
+    : `/images/${member.file}`;
 
 const embers = Array.from({ length: 36 }, (_, i) => ({
   id: i,
