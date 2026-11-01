@@ -151,7 +151,7 @@ const EVENTS = [
 
 // Team photos: /public/images/team/<file>
 const LEADERS = [
-  { role: "President", name: "Aayana Sharma", file: "/public/images/team/President.jpg" },
+  { role: "President", name: "Ayana Sharma", file: "/public/images/team/President.jpg" },
   { role: "Vice President", name: "Vice President Name", file: "vicepresident.jpg" },
 ];
 
@@ -161,7 +161,7 @@ const CORE_MEMBERS = [
   { role: "Design Head", name: "Member Name 3", file: "../../public/images/design.jpg" },
   { role: "Outreach Head", name: "Member Name 4", file: "../../public/images/outreach.jpg" },
   { role: "Tech Head", name: "Member Name 5", file: "../../public/images/tech-lead.jpg" },
-  { role: "Event Head", name: "Member Name 6", file: "../../public/images/event-head.jpg" },
+  { role: "Event Head", name: "Member Name 6", file: "../../public/images/converted.jpg" },
   { role: "Media and Marketing Head", name: "Member Name 7", file: "../../public/images/media_marketing_head.jpg" }
 ];
 
