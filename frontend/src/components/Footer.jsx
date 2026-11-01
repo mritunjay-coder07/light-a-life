@@ -151,7 +151,7 @@ export default function Footer({ onOpenPolicy }) {
               <MapPin size={16} className="contact-icon" />
               <div className="contact-info">
                 <span className="contact-label">Campus Location</span>
-                <span>Newton School of Technology, Delhi-NCR, India</span>
+                <span>Newton School of Technology, Lohegaon, Pune, 412105</span>
               </div>
             </li>
           </ul>

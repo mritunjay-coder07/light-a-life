@@ -5,7 +5,7 @@ import PolicyModal, { POLICY_TABS } from "../components/PolicyModal";
 import { ChevronDown } from "lucide-react";
 
 // Campaign links
-const DONATE_URL = "#";
+const DONATE_URL = "https://smartpay.easebuzz.in/114196/setu_club";
 const SETU_URL = "#/setu";
 
 const embers = Array.from({ length: 75 }, (_, i) => ({
@@ -228,8 +228,8 @@ export default function LandingPage() {
 
           <p className="campaign-description">
             This Diwali, Newton School of Technology with college&apos;s SETU Club is
-            leading Project SEVA, a social initiative to support the Sant Ishwar
-            Foundation &ndash; GHAR, a home for orphaned and vulnerable girls, women
+            leading Project SEVA, a social initiative to support Jayatu
+            Foundation Pune, a home for orphaned and vulnerable girls, women
             with disabilities, and elderly individuals.
           </p>
         </div>
